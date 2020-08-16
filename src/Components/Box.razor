@@ -17,7 +17,7 @@
         @if (this.Collapsable || this.Collapsed)
         {
             <div style="float: right;">
-                <button class="btn btn-light btn-sm" @onclick="e => this.Collapsed = !this.Collapsed">
+                <button class="btn btn-light btn-sm collapseBtn" @onclick="e => this.Collapsed = !this.Collapsed">
                     <i class="oi @(this.Collapsed ? "oi-plus" : "oi-minus")" aria-hidden="true"></i>
                 </button>
             </div>

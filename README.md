@@ -1,2 +1,2 @@
 # BlazorTools
-a small collection of everyday components for dotnet Blazor
+a small collection of everyday components and services for dotnet Blazor

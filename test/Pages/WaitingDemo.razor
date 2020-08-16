@@ -1,0 +1,59 @@
+﻿@page "/waiting"
+@using de.springwald.blazortools.Services
+@inject de.springwald.blazortools.Services.WaitingService waitingService
+@implements IDisposable
+
+<de.springwald.blazortools.Components.Waiting></de.springwald.blazortools.Components.Waiting>
+
+<h3>Waiting Service</h3>
+
+<h4>local waiting instances @this.waitingData?.NumberOfLocalWaiting</h4>
+<p>
+    <button class="btn btn-primary" @onclick="StartLocal">Start local waiting</button>
+    <button class="btn btn-primary" @onclick="StopLocal">Stop local waiting</button>
+</p>
+
+<h4>full screen waiting instances @this.waitingData?.NumberOfFullScreenWaiting</h4>
+<p>
+    <button class="btn btn-primary" @onclick="StartGlobal">Start global waiting</button> (ends automatically because interactions is impossible while fullscreen waiting)
+</p>
+
+@code {
+
+    WaitingService.WaitingData waitingData;
+
+    protected override void OnInitialized()
+    {
+        this.waitingService.Changed += WaitingService_Changed;
+        base.OnInitialized();
+    }
+
+    void StartLocal()
+    {
+        this.waitingService.StartLocalWaitingInstance();
+    }
+
+    void StopLocal()
+    {
+        this.waitingService.StopLocalWaitingInstance();
+    }
+
+    async void StartGlobal()
+    {
+        this.waitingService.StartFullScreenWaitingInstance("This is a fullscreen waiting message!", "waiting title");
+        await Task.Delay(3000);
+        this.waitingService.StopFullScreenWaitingInstance();
+    }
+
+    private void WaitingService_Changed(object sender, WaitingService.WaitingData data)
+    {
+        this.waitingData = data;
+        StateHasChanged();
+    }
+
+    public void Dispose()
+    {
+        this.waitingService.Changed -= this.WaitingService_Changed;
+    }
+
+}

@@ -1,0 +1,29 @@
+﻿@page "/confirmbutton"
+
+<h3>Confirm-button demo</h3>
+
+<de.springwald.blazortools.Components.ConfirmButton @ref="myConfirmButton" 
+                                                    OnClickOk="okClicked"
+                                                    ButtonClass="btn btn-primary"
+                                                    IconClass="fa fa-trash-o"
+                                                    ButtonText="the button text"
+                                                    ConfirmHeader="are you sure?">
+    Do you really want to on?
+</de.springwald.blazortools.Components.ConfirmButton>
+
+<div style="margin-top: 2em;">
+    clicked OK: @clicked
+</div>
+
+@code {
+
+    de.springwald.blazortools.Components.ConfirmButton myConfirmButton;
+    bool clicked;
+
+    void okClicked()
+    {
+        clicked = true;
+        myConfirmButton.Hide();
+    }
+
+}

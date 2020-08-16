@@ -1,0 +1,37 @@
+﻿@page "/modalpopup"
+
+<h3>Modal popup demo</h3>
+
+<de.springwald.blazortools.Components.ModalPopup @ref="modalPopup">
+    <Header>the header</Header>
+
+    <ChildContent>
+        <p>The modal dialogue popup content</p>
+        <p>
+            <button class="btn btn-primary" @onclick="hide">Close</button>
+        </p>
+    </ChildContent>
+
+    <Footer>the footer</Footer>
+</de.springwald.blazortools.Components.ModalPopup>
+
+<p>
+    <button class="btn btn-primary" @onclick="show">show</button>
+</p>
+
+
+@code {
+
+    de.springwald.blazortools.Components.ModalPopup modalPopup;
+
+    void show()
+    {
+        modalPopup.Show();
+    }
+
+    void hide()
+    {
+        modalPopup.Hide();
+    }
+
+}

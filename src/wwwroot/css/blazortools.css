@@ -1,0 +1,478 @@
+﻿
+/* >>> box and mini box >>> */
+.card {
+    margin-bottom: 10px;
+}
+
+    .card .card-header .btn {
+        font-size: 0.6em;
+        line-height: 0.6em;
+        border-radius: 3px;
+        margin-top: -6px;
+        margin-right: -14px;
+    }
+
+    .card:not(.mini) .title {
+        font-weight: bold;
+    }
+
+    .card.mini {
+        margin-bottom: 5px;
+    }
+
+        .card.mini .card-header {
+            font-style: italic;
+            float: left;
+            padding: 2px;
+            font-size: 0.8em;
+        }
+
+        .card.mini .card-header {
+            padding: 0px 4px 0px 4px;
+            margin: 0;
+        }
+
+            .card.mini .card-header .btn {
+                margin-top: 3px;
+                margin-right: -2px;
+            }
+
+        .card.mini .card-body {
+            padding: 2px 8px 2px 8px;
+            margin: 0;
+        }
+
+        .card.mini > .card-footer {
+            padding: 0px 4px 0px 4px;
+            margin: 0;
+        }
+
+
+
+/* waiting */
+.cssload-preload-juggle {
+    width: 217px;
+    height: 217px;
+    margin-left: -108px;
+    margin-top: -108px;
+    position: absolute;
+    pointer-events: none;
+    left: calc(var(--mouse-x, 0) * 100%);
+    top: calc(var(--mouse-y, 0) * 100%);
+    z-index: 5000;
+}
+
+    .cssload-preload-juggle div {
+        position: absolute;
+        width: 15px;
+        height: 15px;
+        border-radius: 7.5px;
+        background: rgba(204,233,255,0.97);
+        margin-top: 109px;
+        margin-left: 109px;
+        animation: cssload-juggle 2.42s linear infinite;
+        -o-animation: cssload-juggle 2.42s linear infinite;
+        -ms-animation: cssload-juggle 2.42s linear infinite;
+        -webkit-animation: cssload-juggle 2.42s linear infinite;
+        -moz-animation: cssload-juggle 2.42s linear infinite;
+    }
+
+        .cssload-preload-juggle div:nth-child(1) {
+            animation-delay: -0.81s;
+            -o-animation-delay: -0.81s;
+            -ms-animation-delay: -0.81s;
+            -webkit-animation-delay: -0.81s;
+            -moz-animation-delay: -0.81s;
+        }
+
+        .cssload-preload-juggle div:nth-child(2) {
+            animation-delay: -1.61s;
+            -o-animation-delay: -1.61s;
+            -ms-animation-delay: -1.61s;
+            -webkit-animation-delay: -1.61s;
+            -moz-animation-delay: -1.61s;
+        }
+
+
+
+@keyframes cssload-juggle {
+    0% {
+        transform: translateX(0px) translateY(0px);
+    }
+
+    12.5% {
+        transform: translateX(19.5px) translateY(-41px) scale(1.1);
+        background: rgb(97,205,255);
+    }
+
+    25% {
+        transform: translateX(40px) translateY(0px);
+        animation-timing-function: ease-out;
+    }
+
+    37.5% {
+        transform: translateX(19.5px) translateY(41px);
+    }
+
+    50% {
+        transform: translateX(0px) translateY(0px);
+    }
+
+    62.5% {
+        transform: translateX(-19.5px) translateY(-41px) scale(1.1);
+        animation-timing-function: ease-in;
+    }
+
+    75% {
+        transform: translateX(-40px) translateY(0px);
+        animation-timing-function: ease-out;
+    }
+
+    87.5% {
+        transform: translateX(-19.5px) translateY(41px);
+    }
+
+    100% {
+        transform: translateX(0px) translateY(0px);
+    }
+}
+
+@-o-keyframes cssload-juggle {
+    0% {
+        -o-transform: translateX(0px) translateY(0px);
+    }
+
+    12.5% {
+        -o-transform: translateX(19.5px) translateY(-41px) scale(1.1);
+        background: rgb(97,205,255);
+    }
+
+    25% {
+        -o-transform: translateX(40px) translateY(0px);
+        -o-animation-timing-function: ease-out;
+    }
+
+    37.5% {
+        -o-transform: translateX(19.5px) translateY(41px);
+    }
+
+    50% {
+        -o-transform: translateX(0px) translateY(0px);
+    }
+
+    62.5% {
+        -o-transform: translateX(-19.5px) translateY(-41px) scale(1.1);
+        -o-animation-timing-function: ease-in;
+    }
+
+    75% {
+        -o-transform: translateX(-40px) translateY(0px);
+        -o-animation-timing-function: ease-out;
+    }
+
+    87.5% {
+        -o-transform: translateX(-19.5px) translateY(41px);
+    }
+
+    100% {
+        -o-transform: translateX(0px) translateY(0px);
+    }
+}
+
+@-ms-keyframes cssload-juggle {
+    0% {
+        -ms-transform: translateX(0px) translateY(0px);
+    }
+
+    12.5% {
+        -ms-transform: translateX(19.5px) translateY(-41px) scale(1.1);
+        background: rgb(97,205,255);
+    }
+
+    25% {
+        -ms-transform: translateX(40px) translateY(0px);
+        -ms-animation-timing-function: ease-out;
+    }
+
+    37.5% {
+        -ms-transform: translateX(19.5px) translateY(41px);
+    }
+
+    50% {
+        -ms-transform: translateX(0px) translateY(0px);
+    }
+
+    62.5% {
+        -ms-transform: translateX(-19.5px) translateY(-41px) scale(1.1);
+        -ms-animation-timing-function: ease-in;
+    }
+
+    75% {
+        -ms-transform: translateX(-40px) translateY(0px);
+        -ms-animation-timing-function: ease-out;
+    }
+
+    87.5% {
+        -ms-transform: translateX(-19.5px) translateY(41px);
+    }
+
+    100% {
+        -ms-transform: translateX(0px) translateY(0px);
+    }
+}
+
+@-webkit-keyframes cssload-juggle {
+    0% {
+        -webkit-transform: translateX(0px) translateY(0px);
+    }
+
+    12.5% {
+        -webkit-transform: translateX(19.5px) translateY(-41px) scale(1.1);
+        background: rgb(97,205,255);
+    }
+
+    25% {
+        -webkit-transform: translateX(40px) translateY(0px);
+        -webkit-animation-timing-function: ease-out;
+    }
+
+    37.5% {
+        -webkit-transform: translateX(19.5px) translateY(41px);
+    }
+
+    50% {
+        -webkit-transform: translateX(0px) translateY(0px);
+    }
+
+    62.5% {
+        -webkit-transform: translateX(-19.5px) translateY(-41px) scale(1.1);
+        -webkit-animation-timing-function: ease-in;
+    }
+
+    75% {
+        -webkit-transform: translateX(-40px) translateY(0px);
+        -webkit-animation-timing-function: ease-out;
+    }
+
+    87.5% {
+        -webkit-transform: translateX(-19.5px) translateY(41px);
+    }
+
+    100% {
+        -webkit-transform: translateX(0px) translateY(0px);
+    }
+}
+
+@-moz-keyframes cssload-juggle {
+    0% {
+        -moz-transform: translateX(0px) translateY(0px);
+    }
+
+    12.5% {
+        -moz-transform: translateX(19.5px) translateY(-41px) scale(1.1);
+        background: rgb(97,205,255);
+    }
+
+    25% {
+        -moz-transform: translateX(40px) translateY(0px);
+        -moz-animation-timing-function: ease-out;
+    }
+
+    37.5% {
+        -moz-transform: translateX(19.5px) translateY(41px);
+    }
+
+    50% {
+        -moz-transform: translateX(0px) translateY(0px);
+    }
+
+    62.5% {
+        -moz-transform: translateX(-19.5px) translateY(-41px) scale(1.1);
+        -moz-animation-timing-function: ease-in;
+    }
+
+    75% {
+        -moz-transform: translateX(-40px) translateY(0px);
+        -moz-animation-timing-function: ease-out;
+    }
+
+    87.5% {
+        -moz-transform: translateX(-19.5px) translateY(41px);
+    }
+
+    100% {
+        -moz-transform: translateX(0px) translateY(0px);
+    }
+}
+
+
+/* blazored toast */
+
+.blazored-toast-container {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    z-index: 2000;
+}
+
+.position-topleft,
+.position-topright,
+.position-topcenter {
+    top: 0;
+}
+
+.position-bottomleft,
+.position-bottomright,
+.position-bottomcenter {
+    bottom: 0;
+}
+
+.blazored-toast {
+    display: flex;
+    position: relative;
+    flex-direction: row;
+    animation: fadein 1.5s;
+    margin-bottom: 1rem;
+    padding: 1rem 1rem;
+    color: #fff;
+    width: 100vw;
+    box-shadow: rgba(0,0,0,0.25) 0px 10px 40px;
+}
+
+.blazored-toast-info {
+    background-color: #34a9ad;
+}
+
+.blazored-toast-success {
+    background-color: #5fba7d;
+}
+
+.blazored-toast-warning {
+    background-color: #c1c13e;
+}
+
+.blazored-toast-error {
+    background-color: #ba5e5e;
+}
+
+.blazored-toast-icon {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 1rem 0 0;
+    font-size: 2.5rem;
+}
+
+.blazored-toast-body {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+    .blazored-toast-body .blazored-toast-header {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+    }
+
+        .blazored-toast-body .blazored-toast-header h5 {
+            font-weight: bold;
+            font-size: 1.1em;
+            margin-bottom: 0;
+        }
+
+        .blazored-toast-body .blazored-toast-header .blazored-toast-close {
+            background-color: transparent;
+            border: 0;
+            -webkit-appearance: none;
+            color: inherit;
+            font-size: 1.3em;
+        }
+
+    .blazored-toast-body p {
+        margin-bottom: 0;
+        font-size: 1em;
+    }
+
+.blazored-toast-progressbar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 8px;
+    border-bottom-left-radius: .25rem;
+    border-bottom-right-radius: .25rem;
+}
+
+.blazored-toast-info .blazored-toast-progressbar > span {
+    background-color: #34a9ad;
+}
+
+.blazored-toast-success .blazored-toast-progressbar > span {
+    background-color: #5fba7d;
+}
+
+.blazored-toast-warning .blazored-toast-progressbar > span {
+    background-color: #c1c13e;
+}
+
+.blazored-toast-error .blazored-toast-progressbar > span {
+    background-color: #ba5e5e;
+}
+
+.blazored-toast-progressbar > span {
+    position: absolute;
+    filter: brightness(75%);
+    height: 8px;
+    border-bottom-left-radius: .25rem;
+}
+
+@keyframes fadein {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@media (min-width: 576px) {
+
+    .position-topleft {
+        top: 2rem;
+        left: 2rem;
+    }
+
+    .position-topright {
+        top: 2rem;
+        right: 2rem;
+    }
+
+    .position-topcenter {
+        top: 2rem;
+        left: 50%;
+        margin-left: -15rem;
+    }
+
+    .position-bottomleft {
+        bottom: 2rem;
+        left: 2rem;
+    }
+
+    .position-bottomright {
+        bottom: 2rem;
+        right: 2rem;
+    }
+
+    .position-bottomcenter {
+        bottom: 2rem;
+        left: 50%;
+        margin-left: -15rem;
+    }
+
+    .blazored-toast {
+        width: 30rem;
+        border-radius: .25rem;
+    }
+}

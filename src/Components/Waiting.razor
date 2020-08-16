@@ -1,0 +1,112 @@
+﻿@using de.springwald.blazortools.Services
+@inject WaitingService waitingService
+@implements IDisposable
+
+<div style="min-height:5px; margin:0; padding:0 !important;">
+    @if (progressBarVisible)
+    {
+        <div class="progress-bar progress-bar-striped" role="progressbar" style="height:5px; width: @($"{progressBarValue:0}%")" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">&nbsp;</div>
+    }
+</div>
+
+@if (showWaitingCursor)
+{
+    <div class="cssload-preload-juggle">
+        <div class="cssload-ball"></div>
+        <div class="cssload-ball"></div>
+        <div class="cssload-ball"></div>
+    </div>
+}
+
+@if (isWaiting)
+{
+    <div class="modal fade show" id="myModal" style=" display: block;" onclick="stopPropagation(); return false;">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="myModalLabel"><i class="fa fa-refresh fa-spin"></i> @fullscreenInfoTitle</h4>
+                </div>
+                <div class="modal-body">
+                    <p>@fullscreenInfoMessage</p>
+                </div>
+                <div class="progress-bar progress-bar-striped" role="progressbar" style="height: 12px; width: @($"{progressBarValue:0}%")" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">&nbsp;</div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-backdrop fade show"></div>
+}
+
+@code {
+
+    private bool isWaiting;
+    private bool showWaitingCursor;
+    private string fullscreenInfoTitle;
+    private string fullscreenInfoMessage;
+
+    private bool progressBarVisible = false;
+    private double progressCounter = 0;
+    private double progressBarValue = 50;
+
+    private System.Timers.Timer timer;
+
+    protected override void OnInitialized()
+    {
+        this.waitingService.Changed += this.WaitingService_Changed;
+
+        timer = new System.Timers.Timer();
+        timer.Interval = TimeSpan.FromMilliseconds(100).TotalMilliseconds;
+        timer.Elapsed += StepProgressBar;
+        base.OnInitialized();
+    }
+
+    private void WaitingService_Changed(object sender, WaitingService.WaitingData data)
+    {
+        this.isWaiting = data.NumberOfFullScreenWaiting > 0;
+
+        this.fullscreenInfoMessage = data.FullscreenInfoMessage;
+        this.fullscreenInfoTitle = data.FullscreenInfoTitle;
+
+        this.progressBarVisible = data.NumberOfLocalWaiting != 0 || data.NumberOfFullScreenWaiting != 0;
+
+        this.showWaitingCursor = progressBarVisible || isWaiting;
+
+        if (this.progressBarVisible)
+        {
+            this.progressCounter = 0;
+            this.progressBarValue = 0;
+            this.timer.Start();
+        }
+        else
+        {
+            this.timer.Stop();
+        }
+
+        StateHasChanged();
+    }
+
+
+    public void Show()
+    {
+        isWaiting = !isWaiting;
+    }
+
+    private void StepProgressBar(object sender, System.Timers.ElapsedEventArgs e)
+    {
+        if (this.progressBarVisible)
+        {
+            const double step = 0.1; // the smaller this is the slower the progress bar
+            this.progressCounter += step;
+            this.progressBarValue = Math.Round(Math.Atan(this.progressCounter) / (Math.PI / 2) * 100d * 1000d) / 1000d;
+            StateHasChanged();
+        }
+    }
+
+    public void Dispose()
+    {
+        this.waitingService.Changed -= this.WaitingService_Changed;
+        this.timer.Stop();
+        this.timer.Elapsed -= StepProgressBar;
+        this.timer.Dispose();
+    }
+
+}

@@ -1,0 +1,83 @@
+﻿<div class="card text-center @(Mini? "mini": "" )">
+    <div class="card-header ">
+        <div style="float: left;">
+            @if (!string.IsNullOrWhiteSpace(Title))
+            {
+                <span class="title">@Title</span>
+            }
+            @if (Header != null)
+            {
+                @Header
+            }
+        </div>
+
+        @*<a class="collapsed card-link" data-toggle="collapse" href="#collapseTwo">
+                Collapsible Group Item #2
+            </a>*@
+        @if (this.Collapsable || this.Collapsed)
+        {
+            <div style="float: right;">
+                <button class="btn btn-light btn-sm" @onclick="e => this.Collapsed = !this.Collapsed">
+                    <i class="oi @(this.Collapsed ? "oi-plus" : "oi-minus")" aria-hidden="true"></i>
+                </button>
+            </div>
+        }
+    </div>
+
+    <div class="@(Collapsed? "collapse": "" )">
+        <div class="card-body">
+            @ChildContent
+        </div>
+    </div>
+    @if (Footer != null)
+    {
+        <div class="card-footer text-muted">
+            @Footer
+        </div>
+    }
+</div>
+
+@*
+    see for accordion https://www.w3schools.com/bootstrap4/bootstrap_collapse.asp
+
+    <div id="accordion">
+
+    <div class="card">
+        <div class="card-header">
+            <a class="card-link" data-toggle="collapse" href="#collapseOne">
+                Collapsible Group Item #1
+            </a>
+        </div>
+        <div id="collapseOne" class="collapse show" data-parent="#accordion">
+            <div class="card-body">
+                Lorem ipsum..
+            </div>
+        </div>
+    </div>
+
+    .....
+*@
+
+@code {
+
+    [Parameter]
+    public string Title { get; set; }
+
+    [Parameter]
+    public bool Collapsable { get; set; }
+
+    [Parameter]
+    public bool Collapsed { get; set; }
+
+    [Parameter]
+    public bool Mini { get; set; }
+
+    [Parameter]
+    public RenderFragment ChildContent { get; set; }
+
+    [Parameter]
+    public RenderFragment Header { get; set; }
+
+    [Parameter]
+    public RenderFragment Footer { get; set; }
+}

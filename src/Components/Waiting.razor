@@ -68,7 +68,13 @@
 
         this.progressBarVisible = data.NumberOfLocalWaiting != 0 || data.NumberOfFullScreenWaiting != 0;
 
-        this.showWaitingCursor = progressBarVisible || isWaiting;
+        if (progressBarVisible || isWaiting)
+        {
+            _ = this.ShowWaitingCursor();
+        } else
+        {
+            this.showWaitingCursor = false;
+        }
 
         if (this.progressBarVisible)
         {
@@ -82,6 +88,12 @@
         }
 
         StateHasChanged();
+    }
+
+    private async Task ShowWaitingCursor()
+    {
+        await Task.Delay(500);
+        this.showWaitingCursor = true;
     }
 
 

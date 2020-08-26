@@ -8,7 +8,7 @@
 
 @if (dialogVisible)
 {
-    <div class="modal @modalClass" tabindex="-1" role="dialog" style="display: @(dialogVisible ? "block" : "none")">
+    <div class="modal @modalClass" tabindex="-1" role="dialog" style="display: @(dialogVisible ? "block" : "none")" @onclick:stopPropagation="true">
         <div class="modal-dialog modal-sm" role="document">
             <div class="modal-content">
                 @if (!string.IsNullOrWhiteSpace(ConfirmHeader))
@@ -21,8 +21,8 @@
                     @ChildContent
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" @onclick="@(() => OnClickOk.InvokeAsync(EventArgs.Empty))">@OkButtonText</button>
-                    <button type="button" class="btn btn-secondary" @onclick="hideModalDialog">@CancelButtonText</button>
+                    <button type="button" class="btn btn-primary" @onclick="@(() => OnClickOk.InvokeAsync(EventArgs.Empty))" @onclick:stopPropagation="true">@OkButtonText</button>
+                    <button type="button" class="btn btn-secondary" @onclick="hideModalDialog" @onclick:stopPropagation="true">@CancelButtonText</button>
                 </div>
             </div>
         </div>

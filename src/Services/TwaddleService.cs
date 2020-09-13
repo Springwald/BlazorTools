@@ -60,9 +60,9 @@ namespace de.springwald.blazortools.Services
             this.numberUnseenTwaddles = 0;
         }
 
-        public async Task AddError(string title, string message, string messageUltraDetailed)
+        public async Task AddError(string title, string message, string messageUltraDetailed, bool showInConsole = true)
         {
-            System.Console.Error.WriteLine($"{title}: {message}");
+            if (showInConsole) System.Console.Error.WriteLine($"{title}: {message}");
             await this.AddNotification(title, message, messageUltraDetailed, TwaddleTypes.Error);
         }
 

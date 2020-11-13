@@ -1,3 +1,4 @@
+using de.springwald.blazortools.Components.toast;
 using de.springwald.blazortools.Services;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -20,6 +21,9 @@ namespace de.springwald.blazortools.test
 
             builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
             builder.Services.AddSingleton(s => new WaitingService());
+
+            builder.Services.AddBlazoredToast();
+            builder.Services.AddScoped<TwaddleService>();
 
             await builder.Build().RunAsync();
         }

@@ -1,4 +1,12 @@
 ﻿@inherits LayoutComponentBase
+@using Blazored.Toast.Configuration
+
+<de.springwald.blazortools.Components.toast.BlazoredToasts Position="ToastPosition.BottomRight"
+                                                           Timeout="5"
+                                                           WarningTimeout="10"
+                                                           ErrorTimeout="20"
+                                                           ShowProgressBar="true" />
+
 
 <div class="page">
     <div class="sidebar">

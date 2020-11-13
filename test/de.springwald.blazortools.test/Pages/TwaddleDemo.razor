@@ -1,11 +1,43 @@
 ﻿@page "/twaddle"
+@inject de.springwald.blazortools.Services.TwaddleService twaddleService
 
 <h3>Twaddle service demo</h3>
 
 <p>
-    ...in preparation...
+    <button class="btn btn-primary" @onclick="ShowInfo">Show info</button>
+</p>
+<p>
+    <button class="btn btn-primary" @onclick="ShowError">Show error</button>
+</p>
+<p>
+    <button class="btn btn-primary" @onclick="ShowSuccess">Show success</button>
+</p>
+<p>
+    <button class="btn btn-primary" @onclick="ShowWarning">Show warning</button>
 </p>
 
+
 @code {
+
+    async Task ShowInfo()
+    {
+        await this.twaddleService.AddInfo("title", "Message",null);
+    }
+
+    async Task ShowError()
+    {
+        await this.twaddleService.AddError("title", "Message", null);
+    }
+
+    async Task ShowSuccess()
+    {
+        await this.twaddleService.AddSuccess("title", "Message", null);
+    }
+
+    async Task ShowWarning()
+    {
+        await this.twaddleService.AddWarning("title", "Message", null);
+    }
+
 
 }

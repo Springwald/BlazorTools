@@ -14,15 +14,19 @@
         @*<a class="collapsed card-link" data-toggle="collapse" href="#collapseTwo">
                 Collapsible Group Item #2
             </a>*@
-        @if (this.Collapsable || this.Collapsed)
-        {
-            <div style="float: right;">
+        <div style="float: right;">
+            @if (this.Collapsable || this.Collapsed)
+            {
+
                 <button class="btn btn-light btn-sm collapseBtn" @onclick="e => this.Collapsed = !this.Collapsed">
                     <i class="oi @(this.Collapsed ? "oi-plus" : "oi-minus")" aria-hidden="true"></i>
                 </button>
-            </div>
-        }
+            }
+            @HeaderButtons
+        </div>
     </div>
+
+
 
     <div class="@(Collapsed? "collapse": "" )">
         <div class="card-body">
@@ -79,5 +83,10 @@
     public RenderFragment Header { get; set; }
 
     [Parameter]
+    public RenderFragment HeaderButtons { get; set; }
+
+    [Parameter]
     public RenderFragment Footer { get; set; }
+
+
 }

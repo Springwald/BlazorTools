@@ -62,7 +62,9 @@ namespace de.springwald.blazortools.Services
 
         public async Task AddError(string title, string message, string messageUltraDetailed, bool showInConsoleAsJsError = false)
         {
-            if (showInConsoleAsJsError) System.Console.Error.WriteLine($"{title}: {message}");
+            const string recursivePreventer = "!SHOWN!";
+            if (messageUltraDetailed?.Contains(recursivePreventer)==true) return;
+            if (showInConsoleAsJsError) System.Console.Error.WriteLine($"{title}: {message} ({recursivePreventer})");
             await this.AddNotification(title, message, messageUltraDetailed, TwaddleTypes.Error);
         }
 

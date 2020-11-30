@@ -1,4 +1,4 @@
-﻿<div class="card text-center @(Mini? "mini": "" )" style="@this.Style">
+﻿<div class="card text-center @(Mini? "mini": "" ) @Class" style="@this.Style">
     <div class="card-header ">
         <div style="float: left; margin-left: 1em;">
             @if (!string.IsNullOrWhiteSpace(Title))
@@ -90,5 +90,8 @@
 
     [Parameter]
     public string Style { get; set; }
+
+    [Parameter]
+    public string Class { get; set; }
 
 }

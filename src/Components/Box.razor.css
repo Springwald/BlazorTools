@@ -53,7 +53,6 @@
         }
 
 .hundredPercentHeight .card-body {
-    background-color: red;
     overflow-y: auto;
 }
 

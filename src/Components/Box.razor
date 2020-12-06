@@ -26,10 +26,8 @@
         </div>
     </div>
 
-    <div class="pre-body @(Collapsed? "collapse": "" )">
-        <div class="card-body overflow-auto">
-            @ChildContent
-        </div>
+    <div class="card-body overflow-auto @(Collapsed? "collapse": "" )">
+        @ChildContent
     </div>
 
     @if (Footer != null)

@@ -1,0 +1,32 @@
+﻿/* Required */
+bdd {
+    margin: 0;
+    height: 50vh;
+}
+
+#wrapper {
+    height: 50vh;
+    display: grid;
+    grid-template-rows: 30px 1fr 30px;
+}
+
+#content {
+    overflow-y: scroll;
+}
+
+/* Optional */
+#wrapper > * {
+    padding: 5px;
+}
+
+#header {
+    background-color: #ff0000ff;
+}
+
+#content {
+    background-color: #00ff00ff;
+}
+
+#footer {
+    background-color: #0000ffff;
+}

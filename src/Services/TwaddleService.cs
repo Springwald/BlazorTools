@@ -60,11 +60,14 @@ namespace de.springwald.blazortools.Services
             this.numberUnseenTwaddles = 0;
         }
 
-        public async Task AddError(string title, string message, string messageUltraDetailed, bool showInConsoleAsJsError = false)
+        public event EventHandler<string> ErrorThrown;
+
+        public async Task AddError(string title, string message, string messageUltraDetailed, bool throwGlobalErrorThrown)
         {
             const string recursivePreventer = "!SHOWN!";
             if (messageUltraDetailed?.Contains(recursivePreventer)==true) return;
-            if (showInConsoleAsJsError) System.Console.Error.WriteLine($"{title}: {message} ({recursivePreventer})");
+           // if (showInConsoleAsJsError) System.Console.Error.WriteLine($"{title}: {message} ({recursivePreventer})");
+            if (throwGlobalErrorThrown) this.ErrorThrown?.Invoke(this, "{title}: {message}");
             await this.AddNotification(title, message, messageUltraDetailed, TwaddleTypes.Error);
         }
 

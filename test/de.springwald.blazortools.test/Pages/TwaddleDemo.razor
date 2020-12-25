@@ -26,7 +26,7 @@
 
     async Task ShowError()
     {
-        await this.twaddleService.AddError("title", "Message", null);
+        await this.twaddleService.AddError("title", "Message", null, throwGlobalError: false);
     }
 
     async Task ShowSuccess()

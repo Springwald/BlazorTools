@@ -1,4 +1,4 @@
-﻿<div class="card text-center @(Mini? "mini": "" ) @Class @(HundredPercentHeight ? "hundredPercentHeight": "")" style="@this.Style">
+﻿<div class="card @(Mini? "mini": "" ) @Class @(HundredPercentHeight ? "hundredPercentHeight": "")" style="@this.Style">
     <div class="card-header ">
         <div style="float: left; margin-left: 1em;">
             @if (!string.IsNullOrWhiteSpace(Title))
@@ -28,7 +28,7 @@
 
     <div class="card-body overflow-auto @(Collapsed? "collapse": "" )">
         @ChildContent
-    </div>
+    </div> 
 
     @if (Footer != null)
     {

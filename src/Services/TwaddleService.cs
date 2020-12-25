@@ -62,12 +62,12 @@ namespace de.springwald.blazortools.Services
 
         public event EventHandler<string> ErrorThrown;
 
-        public async Task AddError(string title, string message, string messageUltraDetailed, bool throwGlobalErrorThrown)
+        public async Task AddError(string title, string message, string messageUltraDetailed, bool throwGlobalError)
         {
             const string recursivePreventer = "!SHOWN!";
             if (messageUltraDetailed?.Contains(recursivePreventer)==true) return;
            // if (showInConsoleAsJsError) System.Console.Error.WriteLine($"{title}: {message} ({recursivePreventer})");
-            if (throwGlobalErrorThrown) this.ErrorThrown?.Invoke(this, "{title}: {message}");
+            if (throwGlobalError) this.ErrorThrown?.Invoke(this, "{title}: {message}");
             await this.AddNotification(title, message, messageUltraDetailed, TwaddleTypes.Error);
         }
 

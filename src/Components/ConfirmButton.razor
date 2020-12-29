@@ -2,7 +2,7 @@
     <span> <i class="@IconClass"> </i> </span>
     @if (!string.IsNullOrWhiteSpace(ButtonText))
     {
-        <span>@ButtonText</span>
+        <span>&nbsp;@ButtonText</span>
     }
 </button>
 
@@ -82,7 +82,7 @@
         StateHasChanged();
     }
 
-    private void  hideModalDialog()
+    private void hideModalDialog()
     {
         this.dialogVisible = false;
         this.modalClass = "";

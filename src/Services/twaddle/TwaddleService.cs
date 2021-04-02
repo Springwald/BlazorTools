@@ -5,33 +5,14 @@ using System.Linq;
 using System.Threading.Tasks;
 using Blazored.Toast.Services;
 
-namespace de.springwald.blazortools.Services
+namespace de.springwald.blazortools.Services.twaddle
 {
-    public class TwaddleService
+    public class TwaddleService: ITwaddleService
     {
         private readonly IToastService toastService;
 
         private int numberUnseenTwaddles = 0;
         private readonly List<TwaddleMessage> allTwaddles = new List<TwaddleMessage>();
-
-        public enum TwaddleTypes
-        {
-            Info,
-            Success,
-            Error,
-            Warning,
-            LogOnly
-        }
-
-        public class TwaddleMessage
-        {
-            public TwaddleTypes Typ { get; set; }
-            public string Title { get; set; }
-            public string Message { get; set; }
-            public string UltraDetailedMessage { get; set; }
-            public DateTime Time { get; set; }
-            public bool Seen { get; set; }
-        }
 
         public event EventHandler<int> NumberUnseenTwaddlesChanged; 
         public event EventHandler<TwaddleMessage> NewTwaddle;
@@ -39,7 +20,7 @@ namespace de.springwald.blazortools.Services
         public TwaddleService(IToastService toastService)
         {
             this.toastService = toastService;
-            System.Console.Out.WriteLine("instanciated TwaddleService");
+            System.Console.Out.WriteLine("instantiated TwaddleService");
         }
 
         // Twaddle = Events - LogOnly;

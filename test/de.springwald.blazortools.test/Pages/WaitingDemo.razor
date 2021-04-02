@@ -1,6 +1,8 @@
 ﻿@page "/waiting"
 @using de.springwald.blazortools.Services
-@inject de.springwald.blazortools.Services.WaitingService waitingService
+@using de.springwald.blazortools.Services.twaddle
+@using de.springwald.blazortools.Services.waiting
+@inject IWaitingService waitingService
 @implements IDisposable
 
 <de.springwald.blazortools.Components.Waiting></de.springwald.blazortools.Components.Waiting>
@@ -20,7 +22,7 @@
 
 @code {
 
-    WaitingService.WaitingData waitingData;
+    WaitingData waitingData;
 
     protected override void OnInitialized()
     {
@@ -45,7 +47,7 @@
         this.waitingService.StopFullScreenWaitingInstance();
     }
 
-    private void WaitingService_Changed(object sender, WaitingService.WaitingData data)
+    private void WaitingService_Changed(object sender, WaitingData data)
     {
         this.waitingData = data;
         StateHasChanged();

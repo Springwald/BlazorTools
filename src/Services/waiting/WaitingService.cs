@@ -1,24 +1,18 @@
 ﻿using System;
 
-namespace de.springwald.blazortools.Services
+namespace de.springwald.blazortools.Services.waiting
 {
-    public class WaitingService
+    public class WaitingService : IWaitingService
     {
-        public class WaitingData
-        {
-            public string FullscreenInfoTitle;
-            public string FullscreenInfoMessage;
-            public int NumberOfFullScreenWaiting;
-            public int NumberOfLocalWaiting;
-        }
-
         public event EventHandler<WaitingData> Changed; // event
 
-        public readonly WaitingData Data;
+        private readonly WaitingData data;
+
+        public WaitingData Data => data;
 
         public WaitingService()
         {
-            this.Data = new WaitingData();
+            this.data = new WaitingData();
         }
 
         public void StartLocalWaitingInstance()

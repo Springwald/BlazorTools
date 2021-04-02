@@ -1,5 +1,7 @@
 ﻿@using de.springwald.blazortools.Services
-@inject WaitingService waitingService
+@using de.springwald.blazortools.Services.twaddle
+@using de.springwald.blazortools.Services.waiting
+@inject IWaitingService waitingService
 @implements IDisposable
 
 <div style="min-height:5px; top:0; left: 0; right: 0; z-index: 3000; position: absolute;">
@@ -59,7 +61,7 @@
         base.OnInitialized();
     }
 
-    private void WaitingService_Changed(object sender, WaitingService.WaitingData data)
+    private void WaitingService_Changed(object sender, WaitingData data)
     {
         this.isWaiting = data.NumberOfFullScreenWaiting > 0;
 
@@ -71,7 +73,8 @@
         if (progressBarVisible || isWaiting)
         {
             _ = this.ShowWaitingCursor();
-        } else
+        }
+        else
         {
             this.showWaitingCursor = false;
         }

@@ -48,6 +48,9 @@
     }
 
         .blazored-toast-body .blazored-toast-header h5 {
+            word-break: break-all;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
             font-weight: bold;
             font-size: 1.1em;
             margin-bottom: 0;
@@ -64,6 +67,9 @@
     .blazored-toast-body p {
         margin-bottom: 0;
         font-size: 1em;
+        word-break: break-all;
+        word-wrap: break-word;
+        overflow-wrap:break-word;
     }
 
 .blazored-toast-progressbar {

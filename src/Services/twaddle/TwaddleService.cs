@@ -1,4 +1,13 @@
-﻿using System;
+﻿// A small collection of everyday components and services for dotnet Blazor
+// https://github.com/Springwald/BlazorTools
+//
+// (C) 2021 Daniel Springwald, Bochum Germany
+// Springwald Software  -   www.springwald.de
+// daniel@springwald.de -  +49 234 298 788 46
+// All rights reserved
+// Licensed under MIT License
+
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;

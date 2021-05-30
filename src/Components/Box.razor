@@ -1,6 +1,6 @@
 ﻿<div class="card @(Mini? "mini": "" ) @Class @(HundredPercentHeight ? "hundredPercentHeight": "")" style="@this.Style">
     <div class="card-header ">
-        <div style="float: left;">
+        <div style="float: left;" @onclick="(e) => { if (this.Collapsable) { this.Collapsed = !this.Collapsed; } }">
             @if (!string.IsNullOrWhiteSpace(Title))
             {
                 <span class="title">@Title</span>

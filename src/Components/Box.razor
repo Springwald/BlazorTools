@@ -22,7 +22,7 @@
         </div>
     </div>
 
-    <div class="card-body overflow-auto @(Collapsed? "collapse": "" )">
+    <div class="card-body @(HundredPercentHeight ? "overflow-auto" : "") @(Collapsed? "collapse": "" )">
         @ChildContent
     </div> 
 

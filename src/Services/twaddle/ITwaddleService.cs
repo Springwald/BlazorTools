@@ -42,6 +42,9 @@ namespace de.springwald.blazortools.Services.twaddle
 
         void SetAllNotificationsAsSeen();
 
+        /// <summary>
+        /// <param name="throwGlobalError">Throw the error up through the complete application. It is then usually also displayed by the browser.</param>
+        /// <returns></returns>
         Task AddError(string title, string message, string messageUltraDetailed, bool throwGlobalError);
         Task AddWarning(string title, string message, string messageUltraDetailed);
         Task AddLogOnly(string title, string message, string messageUltraDetailed);

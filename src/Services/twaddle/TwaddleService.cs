@@ -52,6 +52,9 @@ namespace de.springwald.blazortools.Services.twaddle
 
         public event EventHandler<string> ErrorThrown;
 
+        /// <summary>
+        /// <param name="throwGlobalError">Throw the error up through the complete application. It is then usually also displayed by the browser.</param>
+        /// <returns></returns>
         public async Task AddError(string title, string message, string messageUltraDetailed, bool throwGlobalError)
         {
             const string recursivePreventer = "!SHOWN!";

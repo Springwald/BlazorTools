@@ -11,7 +11,7 @@ namespace de.springwald.blazortools.Components.toast
 
     public enum IconType { FontAwesome, Material };
 
-    public partial class BlazoredToasts
+    public partial class BlazoredToasts: ComponentBase
     {
         [Inject] private IToastService ToastService { get; set; }
         [Inject] private NavigationManager NavigationManager { get; set; }

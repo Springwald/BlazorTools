@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace de.springwald.blazortools.Components.toast
 {
-    public partial class BlazoredToast : IDisposable
+    public partial class BlazoredToast : ComponentBase,  IDisposable
     {
         [CascadingParameter] private BlazoredToasts ToastsContainer { get; set; }
 

@@ -23,39 +23,3 @@
     <div class="modal-backdrop fade show"></div>
 }
 
-
-@code {
-
-    [Parameter]
-    public RenderFragment Header { get; set; }
-
-    [Parameter]
-    public RenderFragment ChildContent { get; set; }
-
-    [Parameter]
-    public RenderFragment Footer { get; set; }
-
-    [Parameter]
-    public bool Xl { get; set; }
-
-    private string modalClass;
-    private bool dialogVisible { get; set; }
-
-    public async Task Show()
-    {
-        this.dialogVisible = true;
-        this.modalClass = "show";
-        StateHasChanged();
-        await Task.CompletedTask;
-    }
-
-    public async Task Hide()
-    {
-        this.dialogVisible = false;
-        this.modalClass = "";
-        StateHasChanged();
-        await Task.CompletedTask;
-    }
-
-}
-

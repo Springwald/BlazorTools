@@ -1,5 +1,12 @@
 <Project Sdk="Microsoft.NET.Sdk.Razor">
 
+  <PropertyGroup Label="Globals">
+    <SccProjectName>%24/IT-Entwicklung/3rdParty/BlazorTools/src</SccProjectName>
+    <SccProvider>{4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}</SccProvider>
+    <SccAuxPath>https://nwbtfs.nwbverlag.de/tfs/nwbcollection</SccAuxPath>
+    <SccLocalPath>.</SccLocalPath>
+  </PropertyGroup>
+
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>

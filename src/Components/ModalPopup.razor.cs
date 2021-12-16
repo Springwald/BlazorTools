@@ -26,12 +26,14 @@ namespace de.springwald.blazortools.Components
         [Parameter]
         public bool Xl { get; set; }
 
+        [Parameter]
+        public bool DialogueVisible { get; set; }
+
         private string modalClass;
-        private bool dialogVisible { get; set; }
 
         public async Task Show()
         {
-            this.dialogVisible = true;
+            this.DialogueVisible = true;
             this.modalClass = "show";
             StateHasChanged();
             await Task.CompletedTask;
@@ -39,7 +41,7 @@ namespace de.springwald.blazortools.Components
 
         public async Task Hide()
         {
-            this.dialogVisible = false;
+            this.DialogueVisible = false;
             this.modalClass = "";
             StateHasChanged();
             await Task.CompletedTask;

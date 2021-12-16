@@ -1,6 +1,6 @@
-﻿@if (dialogVisible)
+﻿@if (this.DialogueVisible)
 {
-    <div class="modal @modalClass" tabindex="-1" role="dialog" style="display: @(dialogVisible ? "block" : "none")">
+    <div class="modal @modalClass" tabindex="-1" role="dialog" style="display: @(this.DialogueVisible ? "block" : "none")">
         <div class="modal-dialog @(this.Xl ? "modal-xl" :"modal-lg")" role="document">
             <div class="modal-content">
                 <div class="modal-header" style="display:flex; flex-wrap: wrap">
@@ -18,7 +18,7 @@
     </div>
 }
 
-@if (dialogVisible == true)
+@if (this.DialogueVisible == true)
 {
     <div class="modal-backdrop fade show"></div>
 }

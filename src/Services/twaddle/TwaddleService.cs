@@ -1,7 +1,7 @@
 ﻿// A small collection of everyday components and services for dotnet Blazor
 // https://github.com/Springwald/BlazorTools
 //
-// (C) 2021 Daniel Springwald, Bochum Germany
+// (C) 2022 Daniel Springwald, Bochum Germany
 // Springwald Software  -   www.springwald.de
 // daniel@springwald.de -  +49 234 298 788 46
 // All rights reserved
@@ -22,6 +22,8 @@ namespace de.springwald.blazortools.Services.twaddle
 
         private int numberUnseenTwaddles = 0;
         private readonly List<TwaddleMessage> allTwaddles = new List<TwaddleMessage>();
+
+        public bool ShowLogOnlyInToasts { get; set; }
 
         public event EventHandler<int> NumberUnseenTwaddlesChanged; 
         public event EventHandler<TwaddleMessage> NewTwaddle;
@@ -98,7 +100,7 @@ namespace de.springwald.blazortools.Services.twaddle
             switch (type)
             {
                 case TwaddleTypes.LogOnly:
-                    if (Debugger.IsAttached) level = ToastLevel.Info;
+                    if (this.ShowLogOnlyInToasts) level = ToastLevel.Info;
                     break;
 
                 case TwaddleTypes.Error:

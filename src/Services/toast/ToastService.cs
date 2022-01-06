@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Web;
 using Microsoft.AspNetCore.Components;
 
 namespace Blazored.Toast.Services
@@ -98,7 +99,16 @@ namespace Blazored.Toast.Services
         /// <param name="heading">The text to display as the toasts heading</param>
         public void ShowToast(ToastLevel level, string message, string heading = "")
         {
-            ShowToast(level, builder => builder.AddContent(0, message), heading);
+            if (message.Contains("\r\n"))
+            {
+                message = message.Replace("\r\n", "@@NEWLINE@@");
+                message = HttpUtility.HtmlEncode(message).Replace("@@NEWLINE@@", "<br/>");
+                ShowToast(level, builder => builder.AddContent(0, new MarkupString(message)), heading);
+            }
+            else
+            {
+                ShowToast(level, builder => builder.AddContent(0, message), heading);
+            }
         }
 
 

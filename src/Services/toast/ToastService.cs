@@ -99,7 +99,7 @@ namespace Blazored.Toast.Services
         /// <param name="heading">The text to display as the toasts heading</param>
         public void ShowToast(ToastLevel level, string message, string heading = "")
         {
-            if (message.Contains("\r\n"))
+            if (message?.Contains("\r\n") == true)
             {
                 message = message.Replace("\r\n", "@@NEWLINE@@");
                 message = HttpUtility.HtmlEncode(message).Replace("@@NEWLINE@@", "<br/>");
